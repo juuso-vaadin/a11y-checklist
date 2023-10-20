@@ -26,7 +26,7 @@
     h2 {
       color: #0D1219;
       font-family: 'Poppins', sans-serif;
-      font-size: 30px;
+      font-size: 1.75rem;
       font-style: normal;
       font-weight: 600;
       line-height: 120%;
@@ -36,7 +36,7 @@
 
     p {
       color: #657892;
-      font-size: 16px;
+      font-size: 1rem;
       font-style: normal;
       font-weight: 400;
       line-height: 160%;
@@ -62,7 +62,7 @@
       align-items: center;
       color: #3F4D62;
       display: flex;
-      font-size: 18px;
+      font-size: 1.125rem;
       font-style: normal;
       font-weight: 600;
       gap: 0.75rem;
@@ -84,7 +84,7 @@
       border-radius: 0.25rem;
       color: #1A81FA;
       display: flex;
-      font-size: 13px;
+      font-size: 0.75rem;
       font-style: normal;
       font-weight: 600;
       height: 1.75rem;
@@ -102,10 +102,11 @@
 
     details {
       color: #657892;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-style: normal;
       font-weight: 400;
       line-height: 170%;
+      padding-inline: 2rem;
     }
 
     details[open] {
@@ -134,7 +135,7 @@
       border: 1px solid #1A81FA;
       border-radius: 0.375rem;
       color: #1A81FA;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-style: normal;
       font-weight: 600;
       height: 2.375rem;
@@ -157,7 +158,7 @@
 
     #progress-indicator {
       background-color: #eee;
-      height: 20px;
+      height: 1.5rem;
       width: 100%;
       position: relative;
       border-radius: 0.25rem;
@@ -170,12 +171,35 @@
       position: absolute;
       top: 0;
       left: 0;
+      transition: 150ms ease-out;
     }
 
     #progress-indicator #progress-text {
       position: absolute;
       top: 0;
       left: 0.25rem;
+    }
+  </style>
+
+  <style>
+    @media print {
+      html {
+        font-size: 13px;
+      }
+
+      #print-page,
+      #visibility-filter {
+        display: none;
+      }
+
+      li {
+        margin: 0;
+        padding: 0.5rem 1rem;
+      }
+
+      .progress-footer {
+        position: static;
+      }
     }
   </style>
 </head>
@@ -188,6 +212,7 @@
     <option value="implementation">UI Implementation</option>
   </select>
 
+  <button id="print-page">Print Checklist</button>
 
   <h2>
     Adaptable and responsive UI
@@ -890,7 +915,7 @@
       const progressText = document.getElementById("progress-text");
 
       progressBar.style.width = percentage + "%";
-      progressText.textContent = `Progress: ${percentage.toFixed(0)}%`;
+      progressText.textContent = `Progress: ` + checkedCheckboxes.length + " / " + checkboxes.length;
     }
 
     // Add event listeners to checkboxes to update progress on change
@@ -928,6 +953,12 @@
       });
     });
 
+  </script>
+
+  <script>
+    document.getElementById("print-page").addEventListener("click", function () {
+      window.print();
+    });
   </script>
 
 </body>
