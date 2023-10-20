@@ -1,451 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessibility checklist</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility checklist</title>
 
-    <style>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-    </style>
+  </style>
 
-    <style>
+  <style>
     html {
-    font-family: 'Inter';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+      font-family: 'Inter';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
-        padding-bottom: 4rem;
-        max-width: 860px;
-        margin: 0 auto;
+      padding-bottom: 4rem;
+      max-width: 860px;
+      margin: 0 auto;
     }
 
     h2 {
-    color: #0D1219;
-    font-family: 'Poppins', sans-serif;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-    letter-spacing: -0.0025em;
-    margin: 0;
+      color: #0D1219;
+      font-family: 'Poppins', sans-serif;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 120%;
+      letter-spacing: -0.0025em;
+      margin: 0;
     }
 
     p {
-    color: #657892;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%;
-    margin: 0.5rem 0 2rem 0;
+      color: #657892;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+      margin: 0.5rem 0 2rem 0;
     }
 
     ul {
-    list-style: none;
-    padding: 0 0 2rem 0;
+      list-style: none;
+      padding: 0 0 2rem 0;
     }
 
     li {
-    margin: 1rem 0;
-    padding: 1rem;
-    position: relative;
+      margin: 1rem 0;
+      padding: 1rem;
+      position: relative;
     }
 
     li:hover {
-        background-color: #fafafa;
+      background-color: #fafafa;
     }
 
     label {
-    align-items: center;
-    color: #3F4D62;
-    display: flex;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    gap: 0.5rem;
-    line-height: 160%;
-    min-height: 2.375rem;
-    padding: 0 2.375rem 0 0;
+      align-items: center;
+      color: #3F4D62;
+      display: flex;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      gap: 0.75rem;
+      line-height: 160%;
+      min-height: 2.375rem;
+      padding: 0 2.375rem 0 0;
     }
 
     input[type="checkbox"] {
-    height: 1.25rem;
-    margin: 0;
-    width: 1.25rem;
+      height: 1.25rem;
+      margin: 0;
+      width: 1.25rem;
+      flex-shrink: 0;
     }
 
     span.badge {
-    align-items: center;
-    background: #E7F1FF;
-    border-radius: 0.25rem;
-    color: #1A81FA;
-    display: flex;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 600;
-    height: 1.75rem;
-    justify-content: center;
-    line-height: 170%;
-    margin: 0 0.5rem 0 auto;
-    padding: 0 0.5rem;
+      align-items: center;
+      background: #E7F1FF;
+      border-radius: 0.25rem;
+      color: #1A81FA;
+      display: flex;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      height: 1.75rem;
+      justify-content: center;
+      line-height: 170%;
+      margin: 0 0.5rem 0 auto;
+      padding: 0 0.5rem;
+      flex-shrink: 0;
+    }
+
+    span.badge.purple {
+      color: #800080;
+      background: #E6E6FA;
     }
 
     details {
-    color: #657892;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 170%;
+      color: #657892;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 170%;
     }
 
     details[open] {
-    margin: 0.25rem 0 0.5rem 0;
+      margin: 0.25rem 0 0.5rem 0;
     }
 
     details[open] summary {
-    transform: rotate(180deg);
+      transform: rotate(180deg);
     }
 
     summary {
-    align-items: center;
-    display: flex;
-    color: #1A81FA;
-    font-size: 1.125rem;
-    height: 2.375rem;
-    inset: 0 0 auto auto;
-    justify-content: center;
-    position: absolute;
-    width: 2.375rem;
+      align-items: center;
+      display: flex;
+      color: #1A81FA;
+      font-size: 1.125rem;
+      height: 2.375rem;
+      inset: 0 0 auto auto;
+      justify-content: center;
+      position: absolute;
+      width: 2.375rem;
+      transition: 150ms;
     }
 
     button {
-    background: none;
-    border: 1px solid #1A81FA;
-    border-radius: 0.375rem;
-    color: #1A81FA;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    height: 2.375rem;
-    line-height: 170%;
-    margin: 0.5rem 0 0 0;
-    padding: 0 0.75rem;
+      background: none;
+      border: 1px solid #1A81FA;
+      border-radius: 0.375rem;
+      color: #1A81FA;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      height: 2.375rem;
+      line-height: 170%;
+      margin: 0.5rem 0 0 0;
+      padding: 0 0.75rem;
     }
 
     .progress-footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        padding: 1rem;
-        left: 0;
-        right: 0;
-        box-sizing: border-box;
-        background: white;
-        box-shadow: 0px 0px 16px rgba(0,0,0,.1);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 1rem;
+      left: 0;
+      right: 0;
+      box-sizing: border-box;
+      background: white;
+      box-shadow: 0px 0px 16px rgba(0, 0, 0, .1);
     }
 
     #progress-indicator {
-        background-color: #ccc;
-        height: 20px;
-        width: 100%;
-        position: relative;
+      background-color: #eee;
+      height: 20px;
+      width: 100%;
+      position: relative;
+      border-radius: 0.25rem;
     }
 
-    #progress-indicator div {
-        background-color: #007bff;
-        height: 100%;
-        width: 0; /* Initial width of the progress bar */
-        position: absolute;
-        top: 0;
-        left: 0;
+    #progress-indicator #progress-bar {
+      background-color: #007bff;
+      height: 100%;
+      width: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
-    </style>
+    #progress-indicator #progress-text {
+      position: absolute;
+      top: 0;
+      left: 0.25rem;
+    }
+  </style>
 </head>
 
 <body>
 
-<h2>
-  Adaptable and responsive UI
-</h2>
-<ul>
-  <li>
-    <label><input type="checkbox">App is usable on both landscape and portrait modes<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Ensure your app is usable in both landscape and portrait modes, providing adaptability for users who switch between different device orientations.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/orientation.html">Understanding WCAG 1.3.4</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">App is usable on 320px viewport width<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Design your web content to be usable at a 320px viewport width, improving accessibility on smaller screens and devices.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">Understanding WCAG 1.4.10</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">App scales down to 320px viewport width<span class="badge">UI implementation</span></label>
-    <details>
-      <summary>↓</summary>
-      Design your web content to be usable at a 320px viewport width, improving accessibility on smaller screens and devices.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">Understanding WCAG 1.4.10</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">App is usable on 200% zoom level. Use em and rem units instead of px to allow text resizing.<span class="badge">UI implementation</span></label>
-    <details>
-      <summary>↓</summary>
-      Allow users to zoom content to 200% without losing functionality or legibility, using em and rem units for text sizing.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">Understanding WCAG 1.4.4</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Users can increase text spacing<span class="badge">UI implementation</span></label>
-    <details>
-      <summary>↓</summary>
-      Enable users to adjust text spacing for improved readability, accommodating various reading preferences and accessibility needs.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/adjustable-spacing.html">Understanding WCAG 1.4.12</a>
-    </details>
-  </li>
-</ul>
+  <select id="visibility-filter">
+    <option value="all">Show All</option>
+    <option value="design">Design</option>
+    <option value="implementation">UI Implementation</option>
+  </select>
 
-<h2>
-  Colour contrast
-</h2>
-<ul>
-  <li>
-    <label><input type="checkbox">Regular-sized text has contrast of 4.5:1<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Ensure text and images have sufficient contrast against their background, making content more readable and accessible for all users, including those with visual impairments.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">Understanding WCAG 1.4.3</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Large-sized text (24px+) has contrast of 3:1<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Ensure text and images have sufficient contrast against their background, making content more readable and accessible for all users, including those with visual impairments.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">Understanding WCAG 1.4.3</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Text over images or gradients have sufficient contrast<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Ensure text and images have sufficient contrast against their background, making content more readable and accessible for all users, including those with visual impairments.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">Understanding WCAG 1.4.3</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Hover and focus styles have contrast of 3:1<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Non-text content, such as graphical symbols and user interface components, should have sufficient contrast, improving usability and comprehension for all users.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding WCAG 1.4.11</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Form field and button borders have contrast of 3:1<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Non-text content, such as graphical symbols and user interface components, should have sufficient contrast, improving usability and comprehension for all users.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding WCAG 1.4.11</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Charts and other graphics have contrast of 3:1<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Non-text content, such as graphical symbols and user interface components, should have sufficient contrast, improving usability and comprehension for all users.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding WCAG 1.4.11</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Icons have contrast of 3:1<span class="badge">Design</span></label>
-    <details>
-      <summary>↓</summary>
-      Non-text content, such as graphical symbols and user interface components, should have sufficient contrast, improving usability and comprehension for all users.<br>
-      <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding WCAG 1.4.11</a>
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Test dark mode if allowed in the app<span class="badge">UI implementation</span></label>
-    <details>
-      <summary>↓</summary>
-      Dark mode provides a visually comfortable alternative, particularly for users with sensitivity to bright displays or those in low-light environments.
-    </details>
-  </li>
-  <li>
-    <label><input type="checkbox">Test "forced-colors:active" mode<span class="badge">UI implementation</span></label>
-    <details>
-      <summary>↓</summary>
-      This mode can be activated by users to override their color preferences, making it essential to verify that the website remains usable and legible for all, including those with vision-related challenges.
-    </details>
-  </li>
-</ul>
 
-<h2>
+  <h2>
+    Adaptable and responsive UI
+  </h2>
+  <ul>
+    <li class="design">
+      <label><input type="checkbox">App is usable on both landscape and portrait modes<span
+          class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Ensure your app is usable in both landscape and portrait modes, providing adaptability for users who switch
+        between different device orientations.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/orientation.html">Understanding WCAG 1.3.4</a>
+      </details>
+    </li>
+    <li class="design">
+      <label><input type="checkbox">App is usable on 320px viewport width<span class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Design your web content to be usable at a 320px viewport width, improving accessibility on smaller screens and
+        devices.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">Understanding WCAG 1.4.10</a>
+      </details>
+    </li>
+    <li class="implementation">
+      <label><input type="checkbox">App scales down to 320px viewport width<span class="badge purple">UI
+          implementation</span></label>
+      <details>
+        <summary>↓</summary>
+        Design your web content to be usable at a 320px viewport width, improving accessibility on smaller screens and
+        devices.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">Understanding WCAG 1.4.10</a>
+      </details>
+    </li>
+    <li class="implementation">
+      <label><input type="checkbox">App is usable on 200% zoom level. Use em and rem units instead of px to allow text
+        resizing.<span class="badge purple">UI implementation</span></label>
+      <details>
+        <summary>↓</summary>
+        Allow users to zoom content to 200% without losing functionality or legibility, using em and rem units for text
+        sizing.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">Understanding WCAG 1.4.4</a>
+      </details>
+    </li>
+    <li class="implementation">
+      <label><input type="checkbox">Users can increase text spacing<span class="badge purple">UI
+          implementation</span></label>
+      <details>
+        <summary>↓</summary>
+        Enable users to adjust text spacing for improved readability, accommodating various reading preferences and
+        accessibility needs.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/adjustable-spacing.html">Understanding WCAG 1.4.12</a>
+      </details>
+    </li>
+  </ul>
+
+  <h2>
+    Colour contrast
+  </h2>
+  <ul>
+    <li class="design">
+      <label><input type="checkbox">Regular-sized text has contrast of 4.5:1<span class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Ensure text and images have sufficient contrast against their background, making content more readable and
+        accessible for all users, including those with visual impairments.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">Understanding WCAG 1.4.3</a>
+      </details>
+    </li>
+    <li class="design">
+      <label><input type="checkbox">Large-sized text (24px+) has contrast of 3:1<span
+          class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Ensure text and images have sufficient contrast against their background, making content more readable and
+        accessible for all users, including those with visual impairments.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">Understanding WCAG 1.4.3</a>
+      </details>
+    </li>
+    <li class="design">
+      <label><input type="checkbox">Text over images or gradients have sufficient contrast<span
+          class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Ensure text and images have sufficient contrast against their background, making content more readable and
+        accessible for all users, including those with visual impairments.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">Understanding WCAG 1.4.3</a>
+      </details>
+    </li>
+    <li class="design">
+      <label><input type="checkbox">Hover and focus styles have contrast of 3:1<span class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Non-text content, such as graphical symbols and user interface components, should have sufficient contrast,
+        improving usability and comprehension for all users.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding WCAG 1.4.11</a>
+      </details>
+    </li>
+    <li class="design">
+      <label><input type="checkbox">Form field and button borders have contrast of 3:1<span
+          class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Non-text content, such as graphical symbols and user interface components, should have sufficient contrast,
+        improving usability and comprehension for all users.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding WCAG 1.4.11</a>
+      </details>
+    </li>
+    <li class="design">
+      <label><input type="checkbox">Charts and other graphics have contrast of 3:1<span
+          class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Non-text content, such as graphical symbols and user interface components, should have sufficient contrast,
+        improving usability and comprehension for all users.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding WCAG 1.4.11</a>
+      </details>
+    </li>
+    <li class="design">
+      <label><input type="checkbox">Icons have contrast of 3:1<span class="badge">Design</span></label>
+      <details>
+        <summary>↓</summary>
+        Non-text content, such as graphical symbols and user interface components, should have sufficient contrast,
+        improving usability and comprehension for all users.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">Understanding WCAG 1.4.11</a>
+      </details>
+    </li>
+    <li class="implementation">
+      <label><input type="checkbox">Test dark mode if allowed in the app<span class="badge purple">UI
+          implementation</span></label>
+      <details>
+        <summary>↓</summary>
+        Dark mode provides a visually comfortable alternative, particularly for users with sensitivity to bright
+        displays or those in low-light environments.
+      </details>
+    </li>
+    <li class="implementation">
+      <label><input type="checkbox">Test "forced-colors:active" mode<span class="badge purple">UI
+          implementation</span></label>
+      <details>
+        <summary>↓</summary>
+        This mode can be activated by users to override their color preferences, making it essential to verify that the
+        website remains usable and legible for all, including those with vision-related challenges.
+      </details>
+    </li>
+  </ul>
+
+  <h2>
     Content structure
   </h2>
   <ul>
-    <li>
+    <li class="design">
       <label><input type="checkbox">Headings have a visual hierarchy<span class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Headings are short and clear, accurately describing the following content<span class="badge">Design</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Headings are short and clear, accurately describing the following content<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Ensure clear, descriptive headings and labels for web content, aiding navigation and accessibility for users with disabilities.<br>
+        Ensure clear, descriptive headings and labels for web content, aiding navigation and accessibility for users
+        with disabilities.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html">Understanding WCAG 2.4.6</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Each content group is labeled with a heading<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Each content group is labeled with a heading<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        For improved web accessibility, label each content group with a relevant heading, utilizing semantic HTML elements like &lt;section&gt;. Note that using &lt;section&gt; and heading will introduce landmarks which should be added with consideration.
+        For improved web accessibility, label each content group with a relevant heading, utilizing semantic HTML
+        elements like &lt;section&gt;. Note that using &lt;section&gt; and heading will introduce landmarks which should
+        be added with consideration.
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">App has one and only one H1 that describes the overall content or page<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">App has one and only one H1 that describes the overall content or page<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Every web page should have a clear and descriptive title that helps users understand its content, aiding navigation and accessibility.<br>
+        Every web page should have a clear and descriptive title that helps users understand its content, aiding
+        navigation and accessibility.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html">Understanding WCAG 2.4.2</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">View has a page title that describes the page. Format the &lt;title&gt; to be from most specific to least specific. E.g. "Button | Components | Vaadin Docs"<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">View has a page title that describes the page. Format the &lt;title&gt; to be from
+        most specific to least specific. E.g. "Button | Components | Vaadin Docs"<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Every web page should have a clear and descriptive title that helps users understand its content, aiding navigation and accessibility.<br>
+        Every web page should have a clear and descriptive title that helps users understand its content, aiding
+        navigation and accessibility.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html">Understanding WCAG 2.4.2</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Heading levels &lt;h1&gt; to &lt;h6&gt; reflect the content hierarchy. Use &lt;span&gt; if you need styled text instead.<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Heading levels &lt;h1&gt; to &lt;h6&gt; reflect the content hierarchy. Use
+        &lt;span&gt; if you need styled text instead.<span class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Structuring content with proper HTML semantics, providing meaningful relationships between elements, and enhancing screen reader comprehension.<br>
+        Structuring content with proper HTML semantics, providing meaningful relationships between elements, and
+        enhancing screen reader comprehension.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">Understanding WCAG 1.3.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Lists use &lt;ul&gt; or &lt;ol&gt; and &lt;li&gt; elements<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Lists use &lt;ul&gt; or &lt;ol&gt; and &lt;li&gt; elements<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Structuring content with proper HTML semantics, providing meaningful relationships between elements, and enhancing screen reader comprehension.<br>
+        Structuring content with proper HTML semantics, providing meaningful relationships between elements, and
+        enhancing screen reader comprehension.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">Understanding WCAG 1.3.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">View regions use semantic UI areas (ARIA landmark roles). Use &lt;nav&gt;, &lt;main&gt;, &lt;header&gt;, &lt;footer&gt; or roles. Also needed when using Vaadin App Layout.<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">View regions use semantic UI areas (ARIA landmark roles). Use &lt;nav&gt;,
+        &lt;main&gt;, &lt;header&gt;, &lt;footer&gt; or roles. Also needed when using Vaadin App Layout.<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Structuring content with proper HTML semantics, providing meaningful relationships between elements, and enhancing screen reader comprehension.<br>
+        Structuring content with proper HTML semantics, providing meaningful relationships between elements, and
+        enhancing screen reader comprehension.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">Understanding WCAG 1.3.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Ensure icon-only buttons have an aria-label or tooltip<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Ensure icon-only buttons have an aria-label or tooltip<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Provide descriptive aria-labels or tooltips for icon-only buttons. This practice empowers users, especially those with visual impairments, to understand the button's purpose and functionality, creating a more inclusive user experience.
+        Provide descriptive aria-labels or tooltips for icon-only buttons. This practice empowers users, especially
+        those with visual impairments, to understand the button's purpose and functionality, creating a more inclusive
+        user experience.
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">lang attribute reflects the UI language<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">lang attribute reflects the UI language<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Specify the language of the web page to ensure proper pronunciation and display by assistive technologies, improving content accessibility.<br>
+        Specify the language of the web page to ensure proper pronunciation and display by assistive technologies,
+        improving content accessibility.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html">Understanding WCAG 3.1.1</a>
       </details>
     </li>
   </ul>
-  
+
   <h2>
     Operability
   </h2>
   <ul>
-    <li>
+    <li class="design">
       <label><input type="checkbox">All tasks can be done using only a keyboard<span class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Ensure all functionality is operable by keyboard, allowing users who cannot use a mouse or touch input to navigate and interact with web content.<br>
+        Ensure all functionality is operable by keyboard, allowing users who cannot use a mouse or touch input to
+        navigate and interact with web content.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html">Understanding WCAG 2.1.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Keyboard shortcuts don't interfere with input or OS/browser shortcuts<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Keyboard shortcuts don't interfere with input or OS/browser shortcuts<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Avoid using single character key shortcuts for functionality, as they may conflict with assistive technology.<br>
+        Avoid using single character key shortcuts for functionality, as they may conflict with assistive
+        technology.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html">Understanding WCAG 2.1.4</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Avoid content that appears on hover or focus<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Avoid content that appears on hover or focus<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Provide alternative for drag & drop interactions. Avoid swiping<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Provide alternative for drag & drop interactions. Avoid swiping<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Ensure that pointer gestures are not the sole means of interacting with content, providing alternatives for users who cannot perform such gestures.<br>
+        Ensure that pointer gestures are not the sole means of interacting with content, providing alternatives for
+        users who cannot perform such gestures.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html">Understanding WCAG 2.5.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Focus order is intuitive and meaningful<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Focus order is intuitive and meaningful<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Maintain a logical and consistent order in which interactive elements receive focus, enhancing keyboard navigation and screen reader usability.<br>
+        Maintain a logical and consistent order in which interactive elements receive focus, enhancing keyboard
+        navigation and screen reader usability.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html">Understanding WCAG 2.4.3</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Ensure keyboard focus is visible on all focusable items<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Ensure keyboard focus is visible on all focusable items<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Ensure keyboard focus is clearly visible, helping users understand where they are navigating and interact effectively with the content.<br>
+        Ensure keyboard focus is clearly visible, helping users understand where they are navigating and interact
+        effectively with the content.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html">Understanding WCAG 2.4.7</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Ensure keyboard focus isn't trapped<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Ensure keyboard focus isn't trapped<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Avoid keyboard traps where users cannot navigate away from a component using a keyboard, promoting accessibility and user control.<br>
+        Avoid keyboard traps where users cannot navigate away from a component using a keyboard, promoting accessibility
+        and user control.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html">Understanding WCAG 2.1.2</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Ensure non-visible or disabled elements don't receive focus<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Ensure non-visible or disabled elements don't receive focus<span
+          class="badge purple">UI implementation</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Don't use positive tabindex values<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Don't use positive tabindex values<span class="badge purple">UI
+          implementation</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Esc can be used to close dialogs, popups, notifications, etc.<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Esc can be used to close dialogs, popups, notifications, etc.<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Ensure that content triggered on hover or focus is dismissible or can be extended, preventing abrupt changes that may disorient users.<br>
-        <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">Understanding WCAG 1.4.13</a>
+        Ensure that content triggered on hover or focus is dismissible or can be extended, preventing abrupt changes
+        that may disorient users.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">Understanding WCAG
+          1.4.13</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Content doesn't automatically disappear when moving the pointer<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Content doesn't automatically disappear when moving the pointer<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Ensure that content triggered on hover or focus is dismissible or can be extended, preventing abrupt changes that may disorient users.<br>
-        <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">Understanding WCAG 1.4.13</a>
+        Ensure that content triggered on hover or focus is dismissible or can be extended, preventing abrupt changes
+        that may disorient users.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html">Understanding WCAG
+          1.4.13</a>
       </details>
     </li>
   </ul>
@@ -454,70 +542,85 @@
     Navigation & links
   </h2>
   <ul>
-    <li>
+    <li class="design">
       <label><input type="checkbox">Links don't use only color<span class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Ensure that information isn't conveyed solely through color. Text and visual elements should remain understandable and distinguishable even when color is not perceivable.<br>
+        Ensure that information isn't conveyed solely through color. Text and visual elements should remain
+        understandable and distinguishable even when color is not perceivable.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html">Understanding WCAG 1.4.1</a>
       </details>
     </li>
-    <li>
+    <li class="design">
       <label><input type="checkbox">Indicate if link opens in a new window<span class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Link text describes the link's destination. e.g. avoid "click here."<span class="badge">Design</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Link text describes the link's destination. e.g. avoid "click here."<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Use descriptive text for links or ensure that the purpose of each link is clear from its context, aiding users in understanding where the link will lead.<br>
+        Use descriptive text for links or ensure that the purpose of each link is clear from its context, aiding users
+        in understanding where the link will lead.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html">Understanding WCAG 2.4.4</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Button labels are brief, informative, rely on verbs and adjectives<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Button labels are brief, informative, rely on verbs and adjectives<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Use descriptive text for links or ensure that the purpose of each link is clear from its context, aiding users in understanding where the link will lead.<br>
+        Use descriptive text for links or ensure that the purpose of each link is clear from its context, aiding users
+        in understanding where the link will lead.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html">Understanding WCAG 2.4.4</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Navigation menus have a consistent layout and order throughout the app<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Navigation menus have a consistent layout and order throughout the app<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Maintain a consistent and predictable navigation mechanism throughout the web content, enabling users to locate and access information efficiently.<br>
+        Maintain a consistent and predictable navigation mechanism throughout the web content, enabling users to locate
+        and access information efficiently.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html">Understanding WCAG 3.2.3</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">User should be able to find content/views by not using the navigation. I.e. provide universal search or sitemap.<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">User should be able to find content/views by not using the navigation. I.e. provide
+        universal search or sitemap.<span class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Offer multiple ways to find content, such as search options or navigation menus, improving accessibility and user choice.<br>
+        Offer multiple ways to find content, such as search options or navigation menus, improving accessibility and
+        user choice.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html">Understanding WCAG 2.4.5</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">RouterLinks or Anchors are used for navigation instead of Buttons<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">RouterLinks or Anchors are used for navigation instead of Buttons<span
+          class="badge purple">UI implementation</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Make sure main content is easy to reach with the keyboard or provide a "skip to content" link as the first focusable element<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Make sure main content is easy to reach with the keyboard or provide a "skip to
+        content" link as the first focusable element<span class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Implement mechanisms for users to skip over repetitive or navigational content, improving the efficiency of keyboard and screen reader navigation.<br>
+        Implement mechanisms for users to skip over repetitive or navigational content, improving the efficiency of
+        keyboard and screen reader navigation.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html">Understanding WCAG 2.4.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Make sure click and touch targets are at least 24px by 24px<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Make sure click and touch targets are at least 24px by 24px<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Ensure that interactive elements have a sufficient target size to be easily selected, particularly for touch or mobile device users, enhancing accessibility and usability.<br>
+        Ensure that interactive elements have a sufficient target size to be easily selected, particularly for touch or
+        mobile device users, enhancing accessibility and usability.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size.html">Understanding WCAG 2.5.8</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">With multiple levels of navigation, give each an accessible name<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">With multiple levels of navigation, give each an accessible name<span
+          class="badge purple">UI implementation</span></label>
     </li>
   </ul>
 
@@ -525,16 +628,19 @@
     Perceivable
   </h2>
   <ul>
-    <li>
-      <label><input type="checkbox">Colour is not used as the only way to communicate important information<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Colour is not used as the only way to communicate important information<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Ensure that information isn't conveyed solely through color. Text and visual elements should remain understandable and distinguishable even when color is not perceivable.<br>
+        Ensure that information isn't conveyed solely through color. Text and visual elements should remain
+        understandable and distinguishable even when color is not perceivable.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html">Understanding WCAG 1.4.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Don't use title attribute. Use tooltip component instead<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Don't use title attribute. Use tooltip component instead<span
+          class="badge purple">UI implementation</span></label>
     </li>
   </ul>
 
@@ -542,89 +648,111 @@
     Forms
   </h2>
   <ul>
-    <li>
-      <label><input type="checkbox">Placeholders are not used as labels. Add aria-label if the visible label isn't used<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Placeholders are not used as labels. Add aria-label if the visible label isn't
+        used<span class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Provide descriptive labels or instructions for form fields and controls, aiding users in understanding how to complete forms and interact with content.<br>
+        Provide descriptive labels or instructions for form fields and controls, aiding users in understanding how to
+        complete forms and interact with content.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">Understanding WCAG 3.3.2</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Error messages appear in relation to the form<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Error messages appear in relation to the form<span
+          class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Each field has a label that is easy to understand<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Each field has a label that is easy to understand<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
         Use clear, descriptive headings and labels to enhance content structure and comprehension.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html">Understanding WCAG 2.4.6</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Helper text is used if additional information is needed<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Helper text is used if additional information is needed<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Provide descriptive labels or instructions for form fields and controls, aiding users in understanding how to complete forms and interact with content.<br>
+        Provide descriptive labels or instructions for form fields and controls, aiding users in understanding how to
+        complete forms and interact with content.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">Understanding WCAG 3.3.2</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Instructions related to the form are before the start of the form<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Instructions related to the form are before the start of the form<span
+          class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">User can review the form entries before submitting<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">User can review the form entries before submitting<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Implement measures to prevent and correct user errors, especially in legal, financial, or data-related actions, reducing the risk of costly mistakes.<br>
-        <a href="https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html">Understanding WCAG 3.3.4</a>
+        Implement measures to prevent and correct user errors, especially in legal, financial, or data-related actions,
+        reducing the risk of costly mistakes.<br>
+        <a href="https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html">Understanding
+          WCAG 3.3.4</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Semantic field groups have a label. Each field has a label defined even if it's visually hidden<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Semantic field groups have a label. Each field has a label defined even if it's
+        visually hidden<span class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Create meaningful relationships and structure in content using semantic HTML elements, facilitating assistive technology navigation and comprehension.<br>
+        Create meaningful relationships and structure in content using semantic HTML elements, facilitating assistive
+        technology navigation and comprehension.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">Understanding WCAG 1.3.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Required fields are marked and use other than color as an indicator<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Required fields are marked and use other than color as an indicator<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Ensure that information isn't conveyed solely through color. Text and visual elements should remain understandable and distinguishable even when color is not perceivable.<br>
+        Ensure that information isn't conveyed solely through color. Text and visual elements should remain
+        understandable and distinguishable even when color is not perceivable.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html">Understanding WCAG 1.4.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Error and validation messages are visible and noticeable<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Error and validation messages are visible and noticeable<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Ensure that information isn't conveyed solely through color. Text and visual elements should remain understandable and distinguishable even when color is not perceivable.<br>
+        Ensure that information isn't conveyed solely through color. Text and visual elements should remain
+        understandable and distinguishable even when color is not perceivable.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html">Understanding WCAG 1.4.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Validation errors use easy-to-understand language<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Validation errors use easy-to-understand language<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Provide clear and meaningful error identification for users during form submission, enabling quick error correction and a more user-friendly experience.<br>
+        Provide clear and meaningful error identification for users during form submission, enabling quick error
+        correction and a more user-friendly experience.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html">Understanding WCAG 3.3.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Error messages are specific and provide guidance to resolve the issue<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Error messages are specific and provide guidance to resolve the issue<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Provide clear and meaningful error identification for users during form submission, enabling quick error correction and a more user-friendly experience.<br>
+        Provide clear and meaningful error identification for users during form submission, enabling quick error
+        correction and a more user-friendly experience.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html">Understanding WCAG 3.3.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Forms have role="form". Search and filtering forms have role="search". Buttons should be inside the section with a form role<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Forms have role="form". Search and filtering forms have role="search". Buttons
+        should be inside the section with a form role<span class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Create meaningful relationships and structure in content using semantic HTML elements, facilitating assistive technology navigation and comprehension.<br>
+        Create meaningful relationships and structure in content using semantic HTML elements, facilitating assistive
+        technology navigation and comprehension.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">Understanding WCAG 1.3.1</a>
       </details>
     </li>
@@ -634,31 +762,38 @@
     Data tables
   </h2>
   <ul>
-    <li>
+    <li class="design">
       <label><input type="checkbox">Tables have a caption<span class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Create meaningful relationships and structure in content using semantic HTML elements, facilitating assistive technology navigation and comprehension.<br>
+        Create meaningful relationships and structure in content using semantic HTML elements, facilitating assistive
+        technology navigation and comprehension.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">Understanding WCAG 1.3.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Break complex tables into smaller simple tables, where possible<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Break complex tables into smaller simple tables, where possible<span
+          class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Style table headers to be distinguishable from content cells<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Style table headers to be distinguishable from content cells<span
+          class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Use row borders and/or row striping with sufficient spacing to help identify rows<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Use row borders and/or row striping with sufficient spacing to help identify
+        rows<span class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Make sure white space between table columns isn't excessive<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Make sure white space between table columns isn't excessive<span
+          class="badge purple">UI implementation</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Make sure tables are navigable with the keyboard<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Make sure tables are navigable with the keyboard<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Ensure all functionality can be operated via keyboard, making web content accessible to users who cannot use a mouse or touch input.<br>
+        Ensure all functionality can be operated via keyboard, making web content accessible to users who cannot use a
+        mouse or touch input.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html">Understanding WCAG 2.1.1</a>
       </details>
     </li>
@@ -668,58 +803,70 @@
     Text styles
   </h2>
   <ul>
-    <li>
+    <li class="design">
       <label><input type="checkbox">Text formatting is not overused<span class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Limit text lines to be shorter than 80 characters<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Limit text lines to be shorter than 80 characters<span
+          class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Left-align text. Avoid right-aligned, centered, or justified text<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Left-align text. Avoid right-aligned, centered, or justified text<span
+          class="badge">Design</span></label>
     </li>
-    <li>
-      <label><input type="checkbox">Text is formatted with semantic elements like &lt;strong&gt; and &lt;em&gt;<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Text is formatted with semantic elements like &lt;strong&gt; and &lt;em&gt;<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Create meaningful relationships and structure in content using semantic HTML elements, facilitating assistive technology navigation and comprehension.<br>
+        Create meaningful relationships and structure in content using semantic HTML elements, facilitating assistive
+        technology navigation and comprehension.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">Understanding WCAG 1.3.1</a>
       </details>
     </li>
   </ul>
-  
+
   <h2>
     Images
   </h2>
   <ul>
-    <li>
-      <label><input type="checkbox">Graphics are not used to convey textual information<span class="badge">Design</span></label>
+    <li class="design">
+      <label><input type="checkbox">Graphics are not used to convey textual information<span
+          class="badge">Design</span></label>
       <details>
         <summary>↓</summary>
-        Avoid presenting text as images, as it can limit readability and accessibility for users who rely on screen readers or text resizing.<br>
+        Avoid presenting text as images, as it can limit readability and accessibility for users who rely on screen
+        readers or text resizing.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html">Understanding WCAG 1.4.5</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Informative images have alt text<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Informative images have alt text<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Include text alternatives for non-text content, such as images and multimedia, making it accessible to users with disabilities who may rely on screen readers or Braille displays.<br>
+        Include text alternatives for non-text content, such as images and multimedia, making it accessible to users
+        with disabilities who may rely on screen readers or Braille displays.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">Understanding WCAG 1.1.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">Icons are hidden from screen readers with aria-hidden="true"<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">Icons are hidden from screen readers with aria-hidden="true"<span
+          class="badge purple">UI implementation</span></label>
       <details>
         <summary>↓</summary>
-        Include text alternatives for non-text content, such as images and multimedia, making it accessible to users with disabilities who may rely on screen readers or Braille displays.<br>
+        Include text alternatives for non-text content, such as images and multimedia, making it accessible to users
+        with disabilities who may rely on screen readers or Braille displays.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">Understanding WCAG 1.1.1</a>
       </details>
     </li>
-    <li>
-      <label><input type="checkbox">SVG elements have role="img" and aria-label<span class="badge">UI implementation</span></label>
+    <li class="implementation">
+      <label><input type="checkbox">SVG elements have role="img" and aria-label<span class="badge purple">UI
+          implementation</span></label>
       <details>
         <summary>↓</summary>
-        Include text alternatives for non-text content, such as images and multimedia, making it accessible to users with disabilities who may rely on screen readers or Braille displays.<br>
+        Include text alternatives for non-text content, such as images and multimedia, making it accessible to users
+        with disabilities who may rely on screen readers or Braille displays.<br>
         <a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html">Understanding WCAG 1.1.1</a>
       </details>
     </li>
@@ -727,34 +874,62 @@
 
   <div class="progress-footer">
     <div id="progress-indicator">
-        <div id="progress-bar"></div> <!-- This div represents the progress bar -->
-        <div id="progress-text">Progress: 0%</div>
+      <div id="progress-bar"></div> <!-- This div represents the progress bar -->
+      <div id="progress-text">Progress: 0%</div>
     </div>
   </div>
 
 
   <script>
     function updateProgress() {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
-        const percentage = (checkedCheckboxes.length / checkboxes.length) * 100;
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+      const percentage = (checkedCheckboxes.length / checkboxes.length) * 100;
 
-        const progressBar = document.getElementById("progress-bar");
-        const progressText = document.getElementById("progress-text");
+      const progressBar = document.getElementById("progress-bar");
+      const progressText = document.getElementById("progress-text");
 
-        progressBar.style.width = percentage + "%";
-        progressText.textContent = `Progress: ${percentage.toFixed(2)}%`;
+      progressBar.style.width = percentage + "%";
+      progressText.textContent = `Progress: ${percentage.toFixed(0)}%`;
     }
-    
+
     // Add event listeners to checkboxes to update progress on change
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
-        checkbox.addEventListener("change", updateProgress);
+      checkbox.addEventListener("change", updateProgress);
     });
-    
+
     // Initial progress update
     updateProgress();
-    </script>
-  
+  </script>
+
+  <script>
+    // Get the select element
+    const visibilityFilter = document.getElementById("visibility-filter");
+
+    // Add an event listener to listen for changes in the select element
+    visibilityFilter.addEventListener("change", () => {
+      const selectedFilter = visibilityFilter.value; // Get the selected option
+
+      // Get all checklist items
+      const checklistItems = document.querySelectorAll("li");
+
+      // Loop through checklist items and hide/show them based on the selected filter
+      checklistItems.forEach(item => {
+        if (selectedFilter === "all") {
+          item.style.display = "list-item"; // Show all items
+        } else {
+          if (item.classList.contains(selectedFilter)) {
+            item.style.display = "list-item"; // Show items that belong to the selected group
+          } else {
+            item.style.display = "none"; // Hide items that don't belong to the selected group
+          }
+        }
+      });
+    });
+
+  </script>
+
 </body>
+
 </html>
